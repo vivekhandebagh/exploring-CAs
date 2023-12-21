@@ -35,8 +35,13 @@ This [paper](https://arxiv.org/abs/2009.01398) helped quite a bit.
 Yay! I think everyone should start celebrating their first model converging like birthdays! 
 
 Okay, what now?
- 
-If we look at the spacetime of CA 225 (shown in the image at the top), we can visually distinguish a couple separate types of global structures. Now, my aim was to find a way to distinguish different structures in the spacetime image. The method I thought of was to consider a local window in the CA spacetime and calculate the values of $H$ and $I$ in that local window so that we can characterize the complexity of local patterns. If we do this operation on a window for each cell in the spacetime, it will result in a feature map that will quantify the different patterns or structures that appear throughout the spacetime. Additionally, I also chose to incorporate a simple density map (assigning a value for each cell based on the number of 1s in the neighborhood). However, once I had reached this point, I realized I was stuck due to two issues. 
+
+# Information Theoretic Feature Maps
+If we look at the spacetime of CA 225 (shown in the image at the top), we can visually distinguish a couple separate types of global structures. Now, my aim was to find a way to distinguish different structures in the spacetime image. The method I thought of was to consider a local window in the CA spacetime and calculate the values of $H$ and $I$ in that local window so that we can characterize the complexity of local patterns. If we do this operation on a window for each cell in the spacetime, it will result in a feature map that will quantify the different patterns or structures that appear throughout the spacetime. 
+
+![image](https://github.com/vivekhandebagh/exploring-CAs/assets/54450878/c5f19b7a-1d7e-41b0-81d1-a6b3c029da79) ![image](https://github.com/vivekhandebagh/exploring-CAs/assets/54450878/ce803630-f9fa-4151-a5d1-c8809a902f23)
+
+Additionally, I also chose to incorporate a simple density map (assigning a value for each cell based on the number of 1s in the neighborhood). However, once I had reached this point, I realized I was stuck due to two issues. 
 
 1. I did not have a way to exactly check if my information theoretic feature map is correctly identifying the set of distinct structures.
 2. 
