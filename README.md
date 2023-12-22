@@ -75,19 +75,22 @@ I was looking hard for a better way to create a segmentation analysis of a CA, a
 The work proposed an unsupervised segmentation algorithm that classified each point in spacetime with local causal states. Let me explain what that means.
 
 Local Causal States are learned representations that extract organization from spatially-extended dynamical systems.
-In such spatiotemporal systems that evolve through local interactions, there must be a limit on how fast causal influence can propagate.
-This limit defines _past lightcones_ as encapsulating all points in the past that could have causally influenced a point in spacetime, and _future lightcones_ as encapsulating all possible points in the future that could have been causally influenced by the current point in spacetime.
 
-$L^{-}(\vec{r}, t)$ is the set of all possible past lightcones of $(\vec{r}, t)$
-A specific past lightcone configuration can be denoted as $l^-_i$
+> "In spatiotemporal systems that evolve through local interactions, there is a limit on how fast causal influence can propagate. This limit defines lightcones in the system that are essential features
+used in constructing local causal states. The past lightcone of a point in spacetime is the collection of all points at previous times that could possibly have influenced the spacetime point through the local interactions. Similarly, the future lightcone of a spacetime point is the collection of all points at later times that the spacetime point could influence through local interactions."
 
-$L^{+}(\vec{r}, t)$ is the set of all possible future lightcones of $(\vec{r}, t)$
-A specific future lightcone configuration can be denoted as $l^+_i$
+$L^{-}(\vec{r}, t)$ is the set of all possible past lightcones of $(\vec{r}, t)$.
+A specific past lightcone configuration can be denoted as $l^-_i$.
+
+$L^{+}(\vec{r}, t)$ is the set of all possible future lightcones of $(\vec{r}, t)$.
+A specific future lightcone configuration can be denoted as $l^+_i$.
 
 **Local Causal Equivalence Relation**
-Two past lightcones are considered causally equivalent if they have the same conditional distribution over co-occuring future lightcones.
+> Two past lightcones are considered causally equivalent if they have the same conditional distribution over co-occuring future lightcones.
 
-$l^-_i$ is causally equivalent to $l^+_j$ if $Pr(L^+ | L^- = l^-_i) = Pr(L^+ | L^- = l^-_j)$
+$l^-_i$ is causally equivalent to $l^+_j$ if $Pr(L^+ | L^- = l^-_i) = Pr(L^+ | L^- = l^-_j)$.
+If $l^-_i$ is causally equivalent to $l^+_j$, we can say that they belong to the same equivalence class.
+Then, the set of local causal states is nothing but the set of causal equivalence classes.
 
 
 I implemented the ideas of lightcone construction and local causal equivalence in code and was successfully able to apply it to my interest in CA dynamics. Doing this was the most valuable part of doing this project, as initially, I had not fully understood how these Hidden Markov Models and epsilon-machines applied to real-world systems (simply because the only processes I really analyzed were very simple ones like the Golden Mean Process). However, when I applied it to a system I was studying, everything I learned in the two quarters of classes I took finally clicked. Now, I feel that I have the greater understanding that I need to really dive into systems that are more complicated than Cellular Automata.
