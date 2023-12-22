@@ -76,21 +76,44 @@ The work proposed an unsupervised segmentation algorithm that classified each po
 
 Local Causal States are learned representations that extract organization from spatially-extended dynamical systems.
 
-> "In spatiotemporal systems that evolve through local interactions, there is a limit on how fast causal influence can propagate. This limit defines lightcones in the system that are essential features
-used in constructing local causal states. The past lightcone of a point in spacetime is the collection of all points at previous times that could possibly have influenced the spacetime point through the local interactions. Similarly, the future lightcone of a spacetime point is the collection of all points at later times that the spacetime point could influence through local interactions."
+> In spatiotemporal systems that evolve through local interactions, there is a limit on how fast causal influence can propagate. This limit defines lightcones in the system that are essential features
+used in constructing local causal states. The past lightcone of a point in spacetime is the collection of all points at previous times that could possibly have influenced the spacetime point through the local interactions. Similarly, the future lightcone of a spacetime point is the collection of all points at later times that the spacetime point could influence through local interactions.
 
-$L^{-}(\vec{r}, t)$ is the set of all possible past lightcones of $(\vec{r}, t)$.
-A specific past lightcone configuration can be denoted as $l^-_i$.
+In other words:
 
-$L^{+}(\vec{r}, t)$ is the set of all possible future lightcones of $(\vec{r}, t)$.
-A specific future lightcone configuration can be denoted as $l^+_i$.
+$L^{-}(\vec{r}, t)$ is the set of all possible past lightcones of $(\vec{r}, t)$, and $l^-_i$ is a specific past lightcone realization.
 
-**Local Causal Equivalence Relation**
+$L^{+}(\vec{r}, t)$ is the set of all possible future lightcones of $(\vec{r}, t)$, and $l^+_i$ is a specific past lightcone realization.
+
+Local Causal Equivalence Relation:
 > Two past lightcones are considered causally equivalent if they have the same conditional distribution over co-occuring future lightcones.
 
 $l^-_i$ is causally equivalent to $l^+_j$ if $Pr(L^+ | L^- = l^-_i) = Pr(L^+ | L^- = l^-_j)$.
+
 If $l^-_i$ is causally equivalent to $l^+_j$, we can say that they belong to the same equivalence class.
+
 Then, the set of local causal states is nothing but the set of causal equivalence classes.
 
+What we now have on our hands is a way to assign each point in spacetime with a label that is fundamentally based on the underlying process of the system. In other words, we have a physics-informed unsupervised spacetime segmentation algorithm. The paper demonstrated that this technique actually works using spacetime data of weather events like hurricanes or vortices. These vortices are emergent structures operating on a separate level of organization and the local causal states method is able to identify that. This is exactly what I was trying to achieve with my information theoretic feature maps.
 
-I implemented the ideas of lightcone construction and local causal equivalence in code and was successfully able to apply it to my interest in CA dynamics. Doing this was the most valuable part of doing this project, as initially, I had not fully understood how these Hidden Markov Models and epsilon-machines applied to real-world systems (simply because the only processes I really analyzed were very simple ones like the Golden Mean Process). However, when I applied it to a system I was studying, everything I learned in the two quarters of classes I took finally clicked. Now, I feel that I have the greater understanding that I need to really dive into systems that are more complicated than Cellular Automata.
+The spacetime data of systems like the weather allow for infinite classes so there are extra steps of clustering and approximation methods that we need not worry for our case with CAs.
+
+I implemented the local causal state method in code (see lightcone.py, local_causal_states.py, and Local_Causal_States_Demo.ipynb), and after applying it I was yet again shocked by the really complex nature of CAs.
+
+I started with a very simple checkerboard CA where I could manually see that every cell is alternating between two causal states.
+
+Here's what I got:
+![Checkerboard CA](https://github.com/vivekhandebagh/exploring-CAs/assets/54450878/ac23e4c2-5721-4959-ac58-36264aa14eab)
+![Causal State Map of Checkerboard CA](https://github.com/vivekhandebagh/exploring-CAs/assets/54450878/15b35733-e336-46f6-bd14-071f32256dc7)
+
+We can see that the map correctly classifies the checkerboard into 2 causal classes. Okay, no surprise so far but I want to expand to an idea.
+
+We have a set of local causal states and a method to find them, but how can we understand how the system transitions between these states? 
+
+Well, lets go to the causal state map and lets start by looking at every causal state transition and have a count for the number of times we see each transition. Then, for each transition we can calculate the probability of that transition occuring. We can visualize this by creating a network graph where each node is a causal state and every edge is directed edge that is labelled with the respective transition probability.
+
+Boom! We now have a state machine and we find ourselves chest deep into automata theory.
+
+Here is the state machine for the Checkerboard CA. 
+
+![image](https://github.com/vivekhandebagh/exploring-CAs/assets/54450878/8a482e60-9544-419b-8c47-3dd420302ab6)
