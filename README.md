@@ -32,8 +32,6 @@ Result:
 A sufficiently overcomplete CNN is able to learn the look-u table of complicated CAs (both 1D and 2D, see CNN_Rule_Discovery_1D.ipynb and CNN_Rule_Discovery_2D.ipynb). 
 This [paper](https://arxiv.org/abs/2009.01398) helped quite a bit.
 
-Yay! I think everyone should start celebrating their first model converging like birthdays! 
-
 Okay, what now?
 
 # Information Theoretic Feature Maps
@@ -58,7 +56,7 @@ There might have been scope to put further effort down this path but I didn't th
 # Big Picture
 In terms of the bigger picture, here's the line of thought I was treading on: 
 
-![big picture](https://github.com/vivekhandebagh/exploring-CAs/assets/54450878/9ed38888-6829-47fa-b2ae-34cbd7b82a44)
+![big picture](https://github.com/vivekhandebagh/exploring-CAs/assets/54450878/caed345e-3cb5-44b9-b835-25a59f372523)
 
 When we are only given the spacetime data, what are the things we can learn? 
 1. Using deep learning algorithms, we can infer the look up table that defines the spacetime dynamics of the CA.
@@ -70,4 +68,11 @@ The motivation for this project lies in the power of Cellular Automata as a sort
 
 # Causal States
 
-This is when I found the paper, "Physics-Informed Representation Learning for Emergent Organization in Complex Dynamical Systems", which proposed an unsupervised segmentation algorithm that classified each point in spacetime with local causal states. I implemented the ideas of lightcone construction and local causal equivalence in code and was successfully able to apply it to my interest in CA dynamics. Doing this was the most valuable part of doing this project, as initially, I had not fully understood how these Hidden Markov Models and epsilon-machines applied to real-world systems (simply because the only processes I really analyzed were very simple ones like the Golden Mean Process). However, when I applied it to a system I was studying, everything I learned in the two quarters of classes I took finally clicked. Now, I feel that I have the greater understanding that I need to really dive into systems that are more complicated than Cellular Automata.
+I was looking hard for a better way to create a segmentation analysis of a CA, and it turned out that my advisor, Prof. James Crutchfield, had written a paper that accomplished exactly that. 
+
+["Unsupervised Discovery of Extreme Weather Events Using Universal Representations of Emergent Organization"](https://arxiv.org/abs/2304.12586)
+
+The work proposed an unsupervised segmentation algorithm that classified each point in spacetime with local causal states. Let me explain what that means.
+
+
+I implemented the ideas of lightcone construction and local causal equivalence in code and was successfully able to apply it to my interest in CA dynamics. Doing this was the most valuable part of doing this project, as initially, I had not fully understood how these Hidden Markov Models and epsilon-machines applied to real-world systems (simply because the only processes I really analyzed were very simple ones like the Golden Mean Process). However, when I applied it to a system I was studying, everything I learned in the two quarters of classes I took finally clicked. Now, I feel that I have the greater understanding that I need to really dive into systems that are more complicated than Cellular Automata.
