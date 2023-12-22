@@ -87,7 +87,7 @@ A specific future lightcone configuration can be denoted as $l^+_i$
 **Local Causal Equivalence Relation**
 Two past lightcones are considered causally equivalent if they have the same conditional distribution over co-occuring future lightcones.
 
-$l^-_i$ is causally equivalent to $l^_j$ if $Pr(L^+ | L^- = l^-_i) = Pr(L^+ | L^- = l^-_j)$
+$l^-_i$ is causally equivalent to $l^+_j$ if $Pr(L^+ | L^- = l^-_i) = Pr(L^+ | L^- = l^-_j)$
 
 
 I implemented the ideas of lightcone construction and local causal equivalence in code and was successfully able to apply it to my interest in CA dynamics. Doing this was the most valuable part of doing this project, as initially, I had not fully understood how these Hidden Markov Models and epsilon-machines applied to real-world systems (simply because the only processes I really analyzed were very simple ones like the Golden Mean Process). However, when I applied it to a system I was studying, everything I learned in the two quarters of classes I took finally clicked. Now, I feel that I have the greater understanding that I need to really dive into systems that are more complicated than Cellular Automata.
