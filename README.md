@@ -68,11 +68,26 @@ The motivation for this project lies in the power of Cellular Automata as a sort
 
 # Causal States
 
-I was looking hard for a better way to create a segmentation analysis of a CA, and it turned out that my advisor, Prof. James Crutchfield, had written a paper that accomplished exactly that. 
+I was looking hard for a better way to create a segmentation analysis of a CA, and it turned out that my advisor, Prof. James Crutchfield, had worked on a paper that accomplished exactly that. 
 
 ["Unsupervised Discovery of Extreme Weather Events Using Universal Representations of Emergent Organization"](https://arxiv.org/abs/2304.12586)
 
 The work proposed an unsupervised segmentation algorithm that classified each point in spacetime with local causal states. Let me explain what that means.
+
+Local Causal States are learned representations that extract organization from spatially-extended dynamical systems.
+In such spatiotemporal systems that evolve through local interactions, there must be a limit on how fast causal influence can propagate.
+This limit defines _past lightcones_ as encapsulating all points in the past that could have causally influenced a point in spacetime, and _future lightcones_ as encapsulating all possible points in the future that could have been causally influenced by the current point in spacetime.
+
+$L^{-}(\vec{r}, t)$ is the set of all possible past lightcones of $(\vec{r}, t)$
+A specific past lightcone configuration can be denoted as $l^-_i$
+
+$L^{+}(\vec{r}, t)$ is the set of all possible future lightcones of $(\vec{r}, t)$
+A specific future lightcone configuration can be denoted as $l^+_i$
+
+**Local Causal Equivalence Relation**
+Two past lightcones are considered causally equivalent if they have the same conditional distribution over co-occuring future lightcones.
+
+$l^-_i$ is causally equivalent to $l^_j$ if $Pr(L^+ | L^- = l^-_i) = Pr(L^+ | L^- = l^-_j)$
 
 
 I implemented the ideas of lightcone construction and local causal equivalence in code and was successfully able to apply it to my interest in CA dynamics. Doing this was the most valuable part of doing this project, as initially, I had not fully understood how these Hidden Markov Models and epsilon-machines applied to real-world systems (simply because the only processes I really analyzed were very simple ones like the Golden Mean Process). However, when I applied it to a system I was studying, everything I learned in the two quarters of classes I took finally clicked. Now, I feel that I have the greater understanding that I need to really dive into systems that are more complicated than Cellular Automata.
