@@ -68,6 +68,8 @@ The motivation for this project lies in the power of Cellular Automata as a sort
 
 # Causal States
 
+At this point, my exploration took a turn into uncovering for myself something more fundamental about the nature of Cellular Automata. 
+
 I was looking hard for a better way to create a segmentation analysis of a CA, and it turned out that my advisor, Prof. James Crutchfield, had worked on a paper that accomplished exactly that. 
 
 ["Unsupervised Discovery of Extreme Weather Events Using Universal Representations of Emergent Organization"](https://arxiv.org/abs/2304.12586)
@@ -104,6 +106,7 @@ I started with a very simple checkerboard CA where I could manually see that eve
 
 Here's what I got:
 ![Checkerboard CA](https://github.com/vivekhandebagh/exploring-CAs/assets/54450878/ac23e4c2-5721-4959-ac58-36264aa14eab)
+
 ![Causal State Map of Checkerboard CA](https://github.com/vivekhandebagh/exploring-CAs/assets/54450878/15b35733-e336-46f6-bd14-071f32256dc7)
 
 We can see that the map correctly classifies the checkerboard into 2 causal classes. Okay, no surprise so far but I want to expand to an idea.
@@ -117,3 +120,5 @@ Boom! We now have a state machine and we find ourselves chest deep into automata
 Here is the state machine for the Checkerboard CA. 
 
 ![image](https://github.com/vivekhandebagh/exploring-CAs/assets/54450878/8a482e60-9544-419b-8c47-3dd420302ab6)
+
+In Local_Causal_States_Demo.ipynb I look at the state machines of various CA.
